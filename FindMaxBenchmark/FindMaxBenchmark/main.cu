@@ -28,17 +28,17 @@ int main() {
 
   // Create all implementations
   std::vector<std::unique_ptr<FindMaxBase>> implementations;
-  implementations.push_back(std::make_unique<FindMaxSequential>(data, "Sequential"));
-  implementations.push_back(std::make_unique<FindMaxParallelCpu>(data, "Parallele Reduktion mit CPU"));
-  implementations.push_back(std::make_unique<FindMaxCudaNaive>(data, "Parallele Reduktion mit CUDA - nicht initialisiert"));
-  implementations.push_back(std::make_unique<FindMaxCudaNaive>(data, "Parallele Reduktion mit CUDA"));
-  implementations.push_back(std::make_unique<FindMaxCudaOptimized>(data, "Parallele Reduktion mit CUDA - optimiert"));
+  implementations.push_back(std::make_unique<FindMaxSequential>(data, "Sequenziell"));
+  implementations.push_back(std::make_unique<FindMaxParallelCpu>(data, "Parallel mit CPU"));
+  implementations.push_back(std::make_unique<FindMaxCudaNaive>(data, "Parallel mit CUDA - nicht initialisiert"));
+  implementations.push_back(std::make_unique<FindMaxCudaNaive>(data, "Parallel mit CUDA"));
+  implementations.push_back(std::make_unique<FindMaxCudaOptimized>(data, "Parallele CUDA - optimiert"));
 
   // Optianllay inialize CUDA context with arbitrary CUDA call
   //cudaFree(0);
 
   // Run each implementation and measure runtime
-  std::cout << "Starting Benchmark with size = " << size << "\n";
+  std::cout << "Starte Benchmark mit size = " << size << "\n";
   for (auto& implementation : implementations) {
     auto begin = std::chrono::high_resolution_clock::now();
 

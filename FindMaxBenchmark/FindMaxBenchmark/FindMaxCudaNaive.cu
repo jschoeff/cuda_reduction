@@ -32,7 +32,7 @@ __global__ void reduceMaxNaive(int* data) {
   }
 
 
-  // Thread 0 of each block write the result back
+  // Thread 0 of each block writes the result back
   if (threadIdx.x == 0) {
     data[blockIdx.x] = partial_max[0];
   }

@@ -82,6 +82,7 @@
   <ItemGroup>
     <CudaCompile Include="FindMaxCudaNaive.cu" />
     <CudaCompile Include="FindMaxCudaOptimized.cu" />
+    <CudaCompile Include="TEST.cu" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cu" />

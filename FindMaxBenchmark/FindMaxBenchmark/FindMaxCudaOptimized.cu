@@ -31,7 +31,7 @@ __global__ void reduceMaxOptimized(int* data) {
     __syncthreads(); // Wait for other threads
   }
 
-  // Thread 0 of each block write the result back
+  // Thread 0 of each block writes the result back
   if (threadIdx.x == 0) {
     data[blockIdx.x] = partial_max[0];
   }
